@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainApplication</class>
+ <widget class="QWidget" name="MainApplication">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>969</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>969</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>PassWord Generator</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../Images/Password.ico</normaloff>../Images/Password.ico</iconset>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>951</width>
+     <height>632</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../Images/undraw_forgot_password_re_hxwm.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnGeneratePassword">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>260</y>
+     <width>230</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {  
+border: 1px solid transparent;
+border: none;
+border-radius: 15px;
+color: rgb(44, 62, 80);
+background-color: rgb(220, 118, 51);
+}
+
+QPushButton:hover {
+color: white; 
+background-color: rgb(229, 152, 102);
+}
+
+QPushButton:pressed {
+color: white;
+background-color: rgb(237, 187, 153);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Generate</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnCopyPassword">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>260</y>
+     <width>230</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {  
+border: 1px solid transparent;
+border: none;
+border-radius: 15px;
+color: rgb(44, 62, 80);
+background-color: rgb(46, 134, 193);
+}
+
+QPushButton:hover {
+color:white;
+background-color: rgb(52, 152, 219);
+}
+
+QPushButton:pressed{
+color:white;
+background-color: rgb(93, 173, 226);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="textPassword">
+   <property name="geometry">
+    <rect>
+     <x>459</x>
+     <y>190</y>
+     <width>491</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {  
+border: 1px solid transparent;
+border: none;
+border-radius: 15px;
+}
+
+</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QSlider" name="SlidePassword">
+   <property name="geometry">
+    <rect>
+     <x>569</x>
+     <y>350</y>
+     <width>381</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>30</number>
+   </property>
+   <property name="singleStep">
+    <number>2</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="tickPosition">
+    <enum>QSlider::TicksBelow</enum>
+   </property>
+   <property name="tickInterval">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LblTwo">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>340</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Length:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LblLenght">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>380</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>410</y>
+     <width>491</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="title">
+    <string>Options</string>
+   </property>
+   <widget class="QCheckBox" name="CheckSimbols">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>20</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Simbols</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="CheckNumers">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>20</y>
+      <width>81</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Numbers</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="CheckUppercase">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>20</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ABC Uppercase</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="CheckLowercase">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>121</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>abc Lowercase</string>
+    </property>
+   </widget>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>textPassword</zorder>
+  <zorder>BtnGeneratePassword</zorder>
+  <zorder>BtnCopyPassword</zorder>
+  <zorder>SlidePassword</zorder>
+  <zorder>LblTwo</zorder>
+  <zorder>LblLenght</zorder>
+  <zorder>groupBox</zorder>
+ </widget>
+ <tabstops>
+  <tabstop>textPassword</tabstop>
+  <tabstop>BtnGeneratePassword</tabstop>
+  <tabstop>BtnCopyPassword</tabstop>
+  <tabstop>SlidePassword</tabstop>
+  <tabstop>CheckUppercase</tabstop>
+  <tabstop>CheckLowercase</tabstop>
+  <tabstop>CheckNumers</tabstop>
+  <tabstop>CheckSimbols</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
