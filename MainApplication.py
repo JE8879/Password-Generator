@@ -67,7 +67,7 @@ class MainApplication(QWidget):
         self.SlidePassword = self.findChild(QSlider, 'SlidePassword')
         self.SlidePassword.valueChanged.connect(self.Display)
         self.SlidePassword.setSingleStep(2)
-        self.SlidePassword.setValue(2)
+        self.SlidePassword.setValue(12)
 
         self.textPassword = self.findChild(QLineEdit, 'textPassword')
         self.textPassword.setFont(self.QLineEditFont)
@@ -90,9 +90,9 @@ class MainApplication(QWidget):
         self.CheckLowercase.setChecked(True)
         self.CheckLowercase.setFont(self.QCheckFont)
         
-        self.CheckNumers = self.findChild(QCheckBox, 'CheckNumers')
-        self.CheckNumers.setChecked(True)
-        self.CheckNumers.setFont(self.QCheckFont)
+        self.CheckNumbers = self.findChild(QCheckBox, 'CheckNumers')
+        self.CheckNumbers.setChecked(True)
+        self.CheckNumbers.setFont(self.QCheckFont)
 
         self.CheckSimbols = self.findChild(QCheckBox, 'CheckSimbols')
         self.CheckSimbols.setChecked(True)
@@ -127,28 +127,26 @@ class MainApplication(QWidget):
         self.textPassword.setText(passwordResult)
 
     def GeneratePassword(self, length):
-        upperletters = string.ascii_uppercase
-        lowerletters = string.ascii_lowercase
-        specialCharacters = ['!', '@', '#', '$', '%', '&', '*','?', '/', ':']
-        numberList = ['0','1','2','3','4','5','6','7','8','9']
-        checkBoxKeystChecked = []
-        passWordResult = ''
 
-         # Get QCheckBox list
-        for child in self.findChildren(QCheckBox):
-            if(child.isChecked()):
-                checkBoxKeystChecked.append(child.objectName())
+        specialCharacters = '!@#$%&*?/:'
 
         passWordOptions = {
-            self.CheckLowercase.objectName() : ''.join(random.choice(lowerletters) for _ in range(length)),
-            self.CheckUppercase.objectName() : ''.join(random.choice(upperletters) for _ in range(length)),
-            self.CheckNumers.objectName() : ''.join(random.choice(numberList) for _ in range(length)),
-            self.CheckSimbols.objectName() : ''.join(random.choice(specialCharacters) for _ in range(length))
+            self.CheckLowercase.objectName() : string.ascii_lowercase,
+            self.CheckUppercase.objectName() : string.ascii_uppercase,
+            self.CheckNumbers.objectName() : string.digits,
+            self.CheckSimbols.objectName() : specialCharacters
         }
 
-        for key, value in passWordOptions.items():
-            if(key) in checkBoxKeystChecked:
-                passWordResult += value
+        checkedBoxesNames = [
+            checkbox.objectName() for checkbox in self.findChildren(QCheckBox) if checkbox.isChecked()
+        ]
+
+        all_chars = ''.join(chars for name, chars in passWordOptions.items() if name in checkedBoxesNames)
+
+        if not all_chars:
+            return ''
+
+        passWordResult = ''.join(random.choice(all_chars) for _ in range(length))
 
         return passWordResult
         
@@ -168,7 +166,7 @@ class MainApplication(QWidget):
         self.BtnCopyPassword.setText('Copy')
 
     def Display(self):
-        self.LblLenght.setText(str(self.sender().value()) + ' by Option')
+        self.LblLenght.setText(str(self.sender().value()))
 
 if __name__ == '__main__':
 
